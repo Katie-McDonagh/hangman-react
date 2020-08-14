@@ -24,5 +24,6 @@ export function checkWin(correct, wrong, word){
 }
 
 export function library(){
- return ['application', 'programming', 'interface', 'wizard']
+ return ['aquiver', 'mellifluous', 'ineffable', 'hiraeth']
+
 }
