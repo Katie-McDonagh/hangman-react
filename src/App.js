@@ -3,6 +3,10 @@ import Header from './components/Header';
 import Figure from './components/Figure';
 import WrongLetters from './components/WrongLetters';
 import Word from './components/Word';
+import Notification from './components/Notification';
+import Popup from './components/Popup';
+// already have a save state called showNotification so we can give it an alt name 'show' to use in this file
+import {showNotification as show} from './helpers/helpers';
 
 
 
@@ -28,13 +32,13 @@ function App() {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
-            // showNotification();
+            show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters(wrongLetters => [...wrongLetters, letter]);
             } else {
-            // showNotification();
+              show(setShowNotification);
           }
         }
       }
