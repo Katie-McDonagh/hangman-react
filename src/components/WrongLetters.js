@@ -1,11 +1,17 @@
 import React from 'react'
 
-const wrongLetters = () => {
+const WrongLetters = ( {wrongLetters} ) => {
   return (
-    <div class="wrong-letters-container">
-    <div id="wrong-letters"></div>
+    <div className="wrong-letters-container">
+    <div>
+      {wrongLetters.length > 0 && <p>Wrong</p>}
+      {wrongLetters
+      .map( (letter, i)  => <span key={i}>{letter}</span>)
+      // reduce method is basically going to add a comma between each <span>
+      .reduce((prev, curr) => prev == null ? [curr] : [prev, ',', curr], null)}
+    </div>
   </div>
   )
 }
 
-export default wrongLetters
+export default WrongLetters
