@@ -42,14 +42,14 @@ function App() {
   window.addEventListener('keydown', handleKeyDown);
   // below function called to clean up after event listener, so we only have one event listener happening at once.
   return () => window.removeEventListener('keydown', handleKeyDown);
-  // anytimes the below gets updated it will call the function
+  // anytime the below gets updated it will call the function
 }, [correctLetters, wrongLetters, playable]);
 
   return (
     <>
     <Header />
     <div className="game-container">
-      <Figure />
+      <Figure wrongLetters={wrongLetters}/>
       <WrongLetters wrongLetters={wrongLetters} />
       <Word selectedWord={selectedWord} correctLetters={correctLetters} />
     </div>
