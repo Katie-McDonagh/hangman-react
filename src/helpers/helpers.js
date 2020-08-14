@@ -25,5 +25,5 @@ export function checkWin(correct, wrong, word){
 
 export function library(){
  return ['aquiver', 'mellifluous', 'ineffable', 'hiraeth']
-
+//  ['hei', 'Nakemiin', 'kylla', 'ei', 'kiitos', 'Ei kesta', 'anteeksi', 'hauska tavata'] finnish option
 }
