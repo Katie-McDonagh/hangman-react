@@ -24,8 +24,8 @@ function App() {
 
 
   useEffect(() => {
-  const handleKeyDown = event => {
-    const { key, keyCode } = event;
+    const handleKeydown = event => {
+      const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
         const letter = key.toLowerCase();
         if (selectedWord.includes(letter)) {
@@ -36,19 +36,17 @@ function App() {
           }
         } else {
           if (!wrongLetters.includes(letter)) {
-            setWrongLetters(wrongLetters => [...wrongLetters, letter]);
-            } else {
-              show(setShowNotification);
+            setWrongLetters(currentLetters => [...currentLetters, letter]);
+          } else {
+            show(setShowNotification);
           }
         }
       }
-  }
+    }
+    window.addEventListener('keydown', handleKeydown);
 
-  window.addEventListener('keydown', handleKeyDown);
-  // below function called to clean up after event listener, so we only have one event listener happening at once.
-  return () => window.removeEventListener('keydown', handleKeyDown);
-  // anytime the below gets updated it will call the function
-}, [correctLetters, wrongLetters, playable]);
+    return () => window.removeEventListener('keydown', handleKeydown);
+  }, [correctLetters, wrongLetters, playable]);
 
   return (
     <>
@@ -58,6 +56,8 @@ function App() {
       <WrongLetters wrongLetters={wrongLetters} />
       <Word selectedWord={selectedWord} correctLetters={correctLetters} />
     </div>
+    <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable}/>
+    <Notification showNotification={showNotification} />
     </>
   );
 }
