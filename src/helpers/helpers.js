@@ -22,3 +22,7 @@ export function checkWin(correct, wrong, word){
 
   return status;
 }
+
+export function library(){
+ return ['application', 'programming', 'interface', 'wizard']
+}

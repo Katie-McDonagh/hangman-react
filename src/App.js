@@ -7,13 +7,14 @@ import Notification from './components/Notification';
 import Popup from './components/Popup';
 // already have a save state called showNotification so we can give it an alt name 'show' to use in this file
 import {showNotification as show} from './helpers/helpers';
+import {library} from './helpers/helpers';
 
 
 
 
 import './App.css';
 
-const words = ['application', 'programming', 'interface', 'wizard'];
+const words = library();
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
 function App() {
